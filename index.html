@@ -1,33 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bonitas Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <img src="assets/asset 0.svg" alt="Bonitas Logo" class="logo">
     </header>
+
+    <!-- New container for the heading and paragraph -->
+    <div class="intro-container">
+        <h3>Join the Medical Aid for South Africa</h3>
+        <p>Fill in the details to get a quick quote</p>
+    </div>
+
     <div class="container">
+        <!-- Radio Group and Logo -->
+        <div class="radio-group">
+            <div class="radio-options">
+                <div class="radio-item">
+                    <input type="radio" id="quote" name="action">
+                    <label for="quote">Get an affordable quote</label>
+                </div>
+                <div class="radio-item">
+                    <input type="radio" id="compare" name="action">
+                    <label for="compare">Compare plans</label>
+                </div>
+            </div>
+            <div class="form-logo">
+                <img src="assets/asset 1.png" alt="Bonitas Form Logo">
+            </div>
+        </div>
+
+        <!-- Input Fields -->
         <form>
-            <h3>Join the Medical Aid for South Africa</h3>
-            <p>Fill in the details to get a quick quote</p>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name">
-            
-            <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name">
-            
-            <label for="dob">Date of Birth:</label>
-            <input type="text" id="dob" name="dob" placeholder="dd/mm/yyyy">
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address">
-            
-            <label for="cellphone">Cellphone:</label>
-            <input type="text" id="cellphone" name="cellphone" placeholder="Enter your number">
-            
-            <input type="submit" value="Get a Quote">
+            <label for="name">NAME*</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="lastname">LAST NAME*</label>
+            <input type="text" id="lastname" placeholder="Enter your last name" required>
+
+            <label for="dob">DATE OF BIRTH*</label>
+            <input type="text" id="dob" placeholder="dd/mm/yyyy" required>
+
+            <label for="email">EMAIL ADDRESS*</label>
+            <input type="email" id="email" placeholder="Enter email address" required>
+
+            <label for="cellphone">CELLPHONE*</label>
+            <input type="tel" id="cellphone" placeholder="Enter your number" required>
+
+            <!-- Submit Button -->
+            <input type="submit" value="GET A QUOTE">
         </form>
     </div>
 </body>

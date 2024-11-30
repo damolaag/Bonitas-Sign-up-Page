@@ -1,79 +1,160 @@
+/* Global Styles */
 body {
-    font-family: 'Facit', sans-serif; /* Use Facit font */
-    background-color: #c8102e; /* Bonitas red background */
     margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #c8102e; /* Bonitas red */
+    color: white;
 }
 
 header {
-    background-color: white; /* Set header background to white */
-    display: flex;
-    align-items: flex-start; /* Aligns items to the top */
-    justify-content: center; /* Center the logo */
-    padding: 20px 0; /* Add padding for spacing */
+    background-color: white;
+    padding: 20px 0;
+    text-align: center;
 }
 
-.logo {
-    max-width: 150px; /* Adjust the size as needed */
+header .logo {
+    max-width: 150px;
 }
 
+/* Form Container */
 .container {
-    max-width: 400px; /* Adjusted for a narrower form */
-    margin: 50px auto; /* Center the container with top margin */
+    max-width: 400px;
+    margin: 25px auto;
     padding: 20px;
-    background-color: #343436; /* White background for the form */
+    background-color: #343436; /* Dark grey background */
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 h3 {
-    color: white; /* Bonitas red */
-    text-align: center;
-    margin-bottom: 10px; /* Space below the heading */
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
 p {
-    text-align: center; /* Center the paragraph */
-    color: white; /* Grey color for the text */
-    margin-bottom: 20px; /* Space below the paragraph */
+    font-size: 14px;
+    margin-bottom: 20px;
+    line-height: 1.5;
 }
 
+/* Radio Group and Logo Alignment */
+.radio-group {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: transparent; /* Ensure no extra styling here */
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Add space between radio items */
+}
+
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.radio-item input[type="radio"] {
+    margin: 0;
+}
+
+.radio-item label {
+    font-size: 14px;
+    color: white;
+}
+
+.form-logo {
+    margin-left: 10px; /* Adjust spacing if needed */
+    align-self: center; /* Center the logo vertically within the flex container */
+}
+
+.form-logo img {
+    max-width: 80px; /* Adjust the size of the form logo */
+    display: block;
+}
+
+/* Form Fields */
 form {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
 }
 
 label {
-    margin: 10px 0 5px;
+    text-align: left;
+    margin-bottom: 5px;
     font-weight: bold;
-    color: white; /* Change label color to white */
 }
 
-input[type="text"], input[type="email"] {
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 4px;
+    font-size: 14px;
     margin-bottom: 15px;
+    background-color: #ffffff;
+    color: #000000;
 }
 
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder {
+    color: #888888;
+}
+
+/* Submit Button */
 input[type="submit"] {
     background-color: #c8102e; /* Bonitas red */
     color: white;
-    padding: 10px;
+    font-size: 16px;
+    padding: 12px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.3s;
 }
 
 input[type="submit"]:hover {
-    background-color: #a60f2e; /* Darker red on hover */
+    background-color: #a60f2e;
 }
 
-.footer {
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    .container {
+        margin: 20px;
+        padding: 15px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    /* Remove or adjust these styles to maintain desktop layout */
+    /* .radio-group {
+        flex-direction: column;
+        align-items: center;
+    } */
+
+    /* .form-logo {
+        margin-top: 15px;
+    } */
+}
+
+/* Intro Container */
+.intro-container {
+    max-width: 400px;
+    margin: 20px auto 10px;
     text-align: center;
-    margin-top: 20px;
-    color: #666;
 }
-
