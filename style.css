@@ -42,16 +42,17 @@ p {
 /* Radio Group and Logo Alignment */
 .radio-group {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    align-items: center; /* Center the logo vertically */
+    justify-content: center; /* Center the logo horizontally */
     margin-bottom: 20px;
     background-color: transparent; /* Ensure no extra styling here */
 }
 
-.radio-options {
+/* Remove or comment out these styles if not needed anymore */
+/* .radio-options {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Add space between radio items */
+    gap: 10px;
 }
 
 .radio-item {
@@ -67,10 +68,10 @@ p {
 .radio-item label {
     font-size: 14px;
     color: white;
-}
+} */
 
 .form-logo {
-    margin-left: 10px; /* Adjust spacing if needed */
+    margin-left: 0; /* Adjust spacing if needed */
     align-self: center; /* Center the logo vertically within the flex container */
 }
 
