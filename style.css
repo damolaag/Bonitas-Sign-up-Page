@@ -1,161 +1,97 @@
-/* Global Styles */
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #c8102e; /* Bonitas red */
-    color: white;
+  font-family: Arial, sans-serif;
+  background-color: #c8102e;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0;
+  align-items: center;
+  height: 85vh;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: #ffffff;
 }
 
 header {
-    background-color: white;
-    padding: 20px 0;
-    text-align: center;
+  height: 15vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
 
 header .logo {
-    max-width: 150px;
+  max-width: 150px;
 }
 
-/* Form Container */
-.container {
-    max-width: 400px;
-    margin: 25px auto;
-    padding: 20px;
-    background-color: #343436; /* Dark grey background */
-    border-radius: 8px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
+#leadForm {
+  background-color: #343436;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
 }
 
-h3 {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 10px;
+#leadForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-p {
-    font-size: 14px;
-    margin-bottom: 20px;
-    line-height: 1.5;
+#leadForm input,
+#leadForm button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
-/* Radio Group and Logo Alignment */
-.radio-group {
-    display: flex;
-    align-items: center; /* Center the logo vertically */
-    justify-content: center; /* Center the logo horizontally */
-    margin-bottom: 20px;
-    background-color: transparent; /* Ensure no extra styling here */
+#leadForm input:focus {
+  border-color: #c8102e;
+  outline: none;
 }
 
-/* Remove or comment out these styles if not needed anymore */
-/* .radio-options {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#leadForm button {
+  background-color: #c8102e;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-.radio-item {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.radio-item input[type="radio"] {
-    margin: 0;
-}
-
-.radio-item label {
-    font-size: 14px;
-    color: white;
-} */
-
-.form-logo {
-    margin-left: 0; /* Adjust spacing if needed */
-    align-self: center; /* Center the logo vertically within the flex container */
-}
-
-.form-logo img {
-    max-width: 80px; /* Adjust the size of the form logo */
-    display: block;
-}
-
-/* Form Fields */
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-}
-
-label {
-    text-align: left;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-bottom: 15px;
-    background-color: #ffffff;
-    color: #000000;
-}
-
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-input[type="tel"]::placeholder {
-    color: #888888;
-}
-
-/* Submit Button */
-input[type="submit"] {
-    background-color: #c8102e; /* Bonitas red */
-    color: white;
-    font-size: 16px;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #a60f2e;
+#leadForm button:hover {
+  background-color: #a60f2e;
 }
 
 /* Responsive Design */
-@media screen and (max-width: 480px) {
-    .container {
-        margin: 20px;
-        padding: 15px;
-    }
+@media (max-width: 480px) {
+  #leadForm {
+    padding: 15px;
+  }
+  .wrap{
+    padding: 18px;
+  }
 
-    h3 {
-        font-size: 18px;
-    }
-
-    p {
-        font-size: 12px;
-    }
-
-    /* Remove or adjust these styles to maintain desktop layout */
-    /* .radio-group {
-        flex-direction: column;
-        align-items: center;
-    } */
-
-    /* .form-logo {
-        margin-top: 15px;
-    } */
-}
-
-/* Intro Container */
-.intro-container {
-    max-width: 400px;
-    margin: 20px auto 10px;
-    text-align: center;
+  #leadForm button {
+    font-size: 14px;
+  }
 }
