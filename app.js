@@ -1,4 +1,8 @@
 function submitLead() {
+    const submitButton = document.querySelector("button[type='button']");
+    submitButton.disabled = true;
+    submitButton.textContent = "Submitting...";
+
     const formData = new URLSearchParams();
     formData.append('cid', document.getElementById('cid').value);
     formData.append('sid', document.getElementById('sid').value);
@@ -9,21 +13,19 @@ function submitLead() {
 
     fetch('https://adclickafrica.databowl.com/api/v1/lead', {
         method: 'POST',
+        mode: 'no-cors',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: formData.toString()
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.result === "created") {
-            alert('Lead submitted successfully!');
-        } else {
-            alert(`Error: ${data.error.msg}`);
-        }
+    .then(() => {
+        window.location.href = 'https://www.bonitas.co.za/';
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Submission failed. Please try again.', error);
+        alert('Submission failed. Please try again.');
+        submitButton.disabled = false;
+        submitButton.textContent = "SIGN UP";
     });
 }
