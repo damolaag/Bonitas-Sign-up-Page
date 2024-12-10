@@ -3,6 +3,18 @@ async function submitLead() {
     submitButton.disabled = true;
     submitButton.textContent = "Please wait...";
 
+    const firstName = document.getElementById('firstName').value.trim();
+    const lastName = document.getElementById('lastName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+
+    if (!firstName || !lastName || !email || !phone) {
+        alert('Please fill in all fields before submitting.');
+        submitButton.disabled = false;
+        submitButton.textContent = "SIGN UP";
+        return;
+    }
+
     try {
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         const ipData = await ipResponse.json();
@@ -19,10 +31,10 @@ async function submitLead() {
         const formData = new URLSearchParams();
         formData.append('cid', document.getElementById('cid').value);
         formData.append('sid', document.getElementById('sid').value);
-        formData.append('f_3_firstname', document.getElementById('firstName').value);
-        formData.append('f_4_lastname', document.getElementById('lastName').value);
-        formData.append('f_1_email', document.getElementById('email').value);
-        formData.append('f_15_mobile', document.getElementById('phone').value);
+        formData.append('f_3_firstname', firstName);
+        formData.append('f_4_lastname', lastName);
+        formData.append('f_1_email', email);
+        formData.append('f_15_mobile', phone);
 
         await fetch('https://adclickafrica.databowl.com/api/v1/lead', {
             method: 'POST',
