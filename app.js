@@ -8,8 +8,17 @@ async function submitLead() {
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
 
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     if (!firstName || !lastName || !email || !phone) {
         alert('Please fill in all fields before submitting.');
+        submitButton.disabled = false;
+        submitButton.textContent = "SIGN UP";
+        return;
+    }
+
+    if (!emailRegex.test(email)) {
+        alert('Please enter a valid email address.');
         submitButton.disabled = false;
         submitButton.textContent = "SIGN UP";
         return;
