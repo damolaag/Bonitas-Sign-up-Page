@@ -1,3 +1,20 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("leadForm");
+  const inputs = form.querySelectorAll("input");
+  const submitButton = document.querySelector("button[type='button']");
+
+  const validateForm = () => {
+    const allFieldsFilled = Array.from(inputs).every((input) => input.value.trim() !== "");
+    submitButton.disabled = !allFieldsFilled;
+  };
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", validateForm);
+  });
+
+  validateForm();
+});
+
 async function submitLead() {
   const submitButton = document.querySelector("button[type='button']");
   submitButton.disabled = true;
@@ -10,15 +27,26 @@ async function submitLead() {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const showMessage = (message, isError = false) => {
+    const messageElement = document.getElementById("message");
+    messageElement.textContent = message;
+    messageElement.className = isError ? "error" : "success";
+    messageElement.style.display = "block";
+
+    setTimeout(() => {
+      messageElement.style.display = "none";
+    }, 2000);
+  };
+
   if (!firstName || !lastName || !email || !phone) {
-    alert("Please fill in all fields before submitting.");
+    showMessage("Please fill in all fields before submitting.", true);
     submitButton.disabled = false;
     submitButton.textContent = "SIGN UP";
     return;
   }
 
   if (!emailRegex.test(email)) {
-    alert("Please enter a valid email address.");
+    showMessage("Please enter a valid email address.", true);
     submitButton.disabled = false;
     submitButton.textContent = "SIGN UP";
     return;
@@ -46,7 +74,7 @@ async function submitLead() {
 
       ipCheckRequest.onsuccess = async function () {
         if (ipCheckRequest.result) {
-          alert("You have already submitted the form.");
+          showMessage("You have already submitted the form.", true);
           submitButton.disabled = false;
           submitButton.textContent = "SIGN UP";
           return;
@@ -73,27 +101,29 @@ async function submitLead() {
           body: formData.toString(),
         });
 
-        alert("Form submitted successfully!");
-        window.location.href = "https://www.bonitas.co.za/";
+        showMessage("Form submitted successfully!");
+        setTimeout(() => {
+          window.location.href = "https://www.bonitas.co.za/";
+        }, 2000);
       };
 
       ipCheckRequest.onerror = function () {
-        console.error("Error checking IP in IndexedDB.");
-        alert("Submission failed. Please try again.");
+        // console.error("Error checking IP in IndexedDB.");
+        showMessage("Submission failed. Please try again.", true);
         submitButton.disabled = false;
         submitButton.textContent = "SIGN UP";
       };
     };
 
     dbRequest.onerror = function () {
-      console.error("Error opening IndexedDB.");
-      alert("Submission failed. Please try again.");
+      // console.error("Error opening IndexedDB.");
+      showMessage("Submission failed. Please try again.", true);
       submitButton.disabled = false;
       submitButton.textContent = "SIGN UP";
     };
   } catch (error) {
-    console.error("Error:", error);
-    alert("Submission failed. Please try again.");
+    // console.error("Error:", error);
+    showMessage("Submission failed. Please try again.", true);
     submitButton.disabled = false;
     submitButton.textContent = "SIGN UP";
   }
