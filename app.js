@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function submitLead() {
   const submitButton = document.querySelector("button[type='button']");
+  const form = document.getElementById("leadForm");
+  const successMessage = document.getElementById("successMessage");
   submitButton.disabled = true;
   submitButton.textContent = "SIGN UP";
 
@@ -101,7 +103,11 @@ async function submitLead() {
           body: formData.toString(),
         });
 
-        showMessage("Form submitted successfully!");
+        form.style.display = "none";
+        successMessage.style.display = "block";
+
+        submitButton.disabled = false;
+        submitButton.textContent = "SIGN UP";
       };
 
       ipCheckRequest.onerror = function () {
