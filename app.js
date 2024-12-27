@@ -102,13 +102,9 @@ async function submitLead() {
         });
 
         showMessage("Form submitted successfully!");
-        setTimeout(() => {
-          window.location.href = "https://www.bonitas.co.za/";
-        }, 2000);
       };
 
       ipCheckRequest.onerror = function () {
-        // console.error("Error checking IP in IndexedDB.");
         showMessage("Submission failed. Please try again.", true);
         submitButton.disabled = false;
         submitButton.textContent = "SIGN UP";
@@ -116,13 +112,11 @@ async function submitLead() {
     };
 
     dbRequest.onerror = function () {
-      // console.error("Error opening IndexedDB.");
       showMessage("Submission failed. Please try again.", true);
       submitButton.disabled = false;
       submitButton.textContent = "SIGN UP";
     };
   } catch (error) {
-    // console.error("Error:", error);
     showMessage("Submission failed. Please try again.", true);
     submitButton.disabled = false;
     submitButton.textContent = "SIGN UP";
