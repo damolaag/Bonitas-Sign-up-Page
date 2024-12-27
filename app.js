@@ -104,7 +104,7 @@ async function submitLead() {
         });
 
         form.style.display = "none";
-        successMessage.style.display = "block";
+        successMessage.style.display = "block"; 
 
         submitButton.disabled = false;
         submitButton.textContent = "SIGN UP";
