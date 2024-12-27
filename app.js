@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 async function submitLead() {
   const submitButton = document.querySelector("button[type='button']");
   submitButton.disabled = true;
-  submitButton.textContent = "Please wait...";
+  submitButton.textContent = "SIGN UP";
 
   const firstName = document.getElementById("firstName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
